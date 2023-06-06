@@ -62,82 +62,83 @@ export default function Home() {
   return (
     <main
       ref={main}
-      className="flex flex-col items-center justify-center min-h-screen gap-4"
       onMouseMove={handleMouseMove}
     >
-      <div className="-mt-12 w-2/3 bg-[rgba(051,051,051,0.3)] backdrop-blur rounded-full h-14 flex items-center justify-evenly">
-        <button type='button' className="p-3 rounded-full w-max h-max bg-[rgba(155,155,155,0.3)] hover:bg-[rgba(155,155,155,0.5)]">
-          <SidebarIcon />
-        </button>
-        <button type='button' className="p-3 rounded-full w-max h-max bg-[rgba(155,155,155,0.3)] hover:bg-[rgba(155,155,155,0.5)]">
-          <BackIcon
-            onClick={() => {
-              if (iframe.current !== null && iframe.current.contentWindow) {
-                iframe.current.contentWindow.history.back();
-              }
-            }}
-          />
-        </button>
-        <button type='button' className="p-3 rounded-full w-max h-max bg-[rgba(155,155,155,0.3)] hover:bg-[rgba(155,155,155,0.5)]">
-          <ForwardIcon
-            onClick={() => {
-              if (iframe.current !== null && iframe.current.contentWindow) {
-                iframe.current.contentWindow.history.forward();
-              }
-            }}
-          />
-        </button>
-        <div className="w-3/4 h-[calc(100%-16px)] rounded-full bg-[rgba(64,64,64,0.6)] flex justify-center items-center px-2">
-          <button type="button" className="mx-2 text-xl">
-            <FontIcon />
+      <section className="flex flex-col items-center justify-center min-h-screen gap-4 scale-90">
+        <div className="-mt-32 w-2/3 bg-[rgba(051,051,051,0.3)] backdrop-blur rounded-full h-14 flex items-center justify-evenly">
+          <button type='button' className="p-3 rounded-full w-max h-max bg-[rgba(155,155,155,0.3)] hover:bg-[rgba(155,155,155,0.5)]">
+            <SidebarIcon />
           </button>
-          <input
-            ref={search}
-            type="text"
-            className="w-full mx-4 text-center bg-transparent"
-            value={handleValue()}
-            onFocus={onFocus}
-            onBlur={onBlur}
-            onChange={(event) => setEnteredValue(event.target.value)}
-            onKeyDown={(event) => {
-              if (event.key === 'Enter') {
-                const httpCheck = enteredValue.includes('https://') ? enteredValue : enteredValue.includes('http://') ? enteredValue : `https://${enteredValue}`;
-                setUrl(httpCheck);
-                setFocused(false);
-              }
-            }}
-          />
-          <button
-            type="button"
-            className="mx-2 text-xl"
-            onClick={() => {
-              if (iframe.current !== null && iframe.current.contentWindow) {
-                iframe.current.contentWindow.location.reload();
-              }
-            }}
-          >
-            <RefreshIcon />
+          <button type='button' className="p-3 rounded-full w-max h-max bg-[rgba(155,155,155,0.3)] hover:bg-[rgba(155,155,155,0.5)]">
+            <BackIcon
+              onClick={() => {
+                if (iframe.current !== null && iframe.current.contentWindow) {
+                  iframe.current.contentWindow.history.back();
+                }
+              }}
+            />
+          </button>
+          <button type='button' className="p-3 rounded-full w-max h-max bg-[rgba(155,155,155,0.3)] hover:bg-[rgba(155,155,155,0.5)]">
+            <ForwardIcon
+              onClick={() => {
+                if (iframe.current !== null && iframe.current.contentWindow) {
+                  iframe.current.contentWindow.history.forward();
+                }
+              }}
+            />
+          </button>
+          <div className="w-3/4 h-[calc(100%-16px)] rounded-full bg-[rgba(64,64,64,0.6)] flex justify-center items-center px-2">
+            <button type="button" className="mx-2 text-xl">
+              <FontIcon />
+            </button>
+            <input
+              ref={search}
+              type="text"
+              className="w-full mx-4 text-center bg-transparent"
+              value={handleValue()}
+              onFocus={onFocus}
+              onBlur={onBlur}
+              onChange={(event) => setEnteredValue(event.target.value)}
+              onKeyDown={(event) => {
+                if (event.key === 'Enter') {
+                  const httpCheck = enteredValue.includes('https://') ? enteredValue : enteredValue.includes('http://') ? enteredValue : `https://${enteredValue}`;
+                  setUrl(httpCheck);
+                  setFocused(false);
+                }
+              }}
+            />
+            <button
+              type="button"
+              className="mx-2 text-xl"
+              onClick={() => {
+                if (iframe.current !== null && iframe.current.contentWindow) {
+                  iframe.current.contentWindow.location.reload();
+                }
+              }}
+            >
+              <RefreshIcon />
+            </button>
+          </div>
+          <button type='button' className="p-3 rounded-full w-max h-max bg-[rgba(155,155,155,0.3)] hover:bg-[rgba(155,155,155,0.5)]">
+            <ShareIcon />
+          </button>
+          <button type='button' className="p-[.4rem] rounded-full w-max h-max bg-[rgba(155,155,155,0.3)] hover:bg-[rgba(155,155,155,0.5)]">
+            <PlusIcon />
+          </button>
+          <button type='button' className="p-3 rounded-full w-max h-max bg-[rgba(155,155,155,0.3)] hover:bg-[rgba(155,155,155,0.5)]">
+            <CopyIcon />
           </button>
         </div>
-        <button type='button' className="p-3 rounded-full w-max h-max bg-[rgba(155,155,155,0.3)] hover:bg-[rgba(155,155,155,0.5)]">
-          <ShareIcon />
-        </button>
-        <button type='button' className="p-[.4rem] rounded-full w-max h-max bg-[rgba(155,155,155,0.3)] hover:bg-[rgba(155,155,155,0.5)]">
-          <PlusIcon />
-        </button>
-        <button type='button' className="p-3 rounded-full w-max h-max bg-[rgba(155,155,155,0.3)] hover:bg-[rgba(155,155,155,0.5)]">
-          <CopyIcon />
-        </button>
-      </div>
-      <div className="w-2/3 bg-[rgba(111,111,111,0.1)] backdrop-blur rounded-2xl h-[calc(100vh-200px)] overflow-hidden">
-        <iframe
-          title="Inline Frame Example"
-          width="100%"
-          height="100%"
-          ref={iframe}
-          src={url}>
-        </iframe>
-      </div>
+        <div className="w-2/3 bg-[rgba(111,111,111,0.1)] backdrop-blur rounded-2xl h-[calc(100vh-200px)] overflow-hidden">
+          <iframe
+            title="Inline Frame Example"
+            width="100%"
+            height="100%"
+            ref={iframe}
+            src={url}>
+          </iframe>
+        </div>
+      </section>
     </main >
   )
 }
