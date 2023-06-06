@@ -141,6 +141,7 @@ export default function Home() {
       </section>
 
       <div className="absolute p-4 bg-[rgba(111,111,111,0.1)] backdrop-blur-sm rounded-lg bottom-2 left-2">
+        <p className="block md:hidden">For full experience please view on desktop.</p>
         <p>The browser is an iframe so you will need special URLs for some websites to work.</p>
         <p>
           Examples:
