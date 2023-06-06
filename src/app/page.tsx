@@ -65,7 +65,7 @@ export default function Home() {
       onMouseMove={handleMouseMove}
     >
       <section className="flex flex-col items-center justify-center min-h-screen gap-4 scale-90">
-        <div className="-mt-32 w-2/3 bg-[rgba(051,051,051,0.3)] backdrop-blur rounded-full h-14 flex items-center justify-evenly">
+        <div className="-mt-32 md:w-2/3 w-full bg-[rgba(051,051,051,0.3)] backdrop-blur rounded-full h-14 flex items-center justify-evenly">
           <button type='button' className="p-3 rounded-full w-max h-max bg-[rgba(155,155,155,0.3)] hover:bg-[rgba(155,155,155,0.5)]">
             <SidebarIcon />
           </button>
@@ -129,7 +129,7 @@ export default function Home() {
             <CopyIcon />
           </button>
         </div>
-        <div className="w-2/3 bg-[rgba(111,111,111,0.1)] backdrop-blur rounded-2xl h-[calc(100vh-200px)] overflow-hidden">
+        <div className="md:w-2/3 w-full bg-[rgba(111,111,111,0.1)] backdrop-blur rounded-2xl h-[calc(100vh-200px)] overflow-hidden">
           <iframe
             title="Inline Frame Example"
             width="100%"

@@ -27,3 +27,13 @@ main {
   background-repeat: no-repeat;
   background-size: 110%;
 }
+
+@media screen and (max-width: 500px) {
+  main {
+    background: url("../assets/example-livingroom.jpeg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
