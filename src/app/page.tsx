@@ -15,8 +15,8 @@ export default function Home() {
   const iframe = useRef<HTMLIFrameElement>(null);
   const search = useRef<HTMLInputElement>(null);
 
-  const [enteredValue, setEnteredValue] = React.useState('https://www.google.com');
-  const [url, setUrl] = React.useState('https://www.google.com');
+  const [enteredValue, setEnteredValue] = React.useState('https://www.google.com/webhp?igu=1');
+  const [url, setUrl] = React.useState('https://www.google.com/webhp?igu=1');
 
   const [focused, setFocused] = React.useState(false);
   const onFocus = () => setFocused(true);
@@ -139,6 +139,29 @@ export default function Home() {
           </iframe>
         </div>
       </section>
+
+      <div className="absolute p-4 bg-[rgba(111,111,111,0.1)] backdrop-blur-sm rounded-lg bottom-2 left-2">
+        <p>The browser is an iframe so you will need special URLs for some websites to work.</p>
+        <p>
+          Examples:
+          {' '}
+          <span
+            className="underline underline-offset-2 hover:cursor-pointer"
+            onClick={() => setUrl('https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1')}
+          >
+            YouTube
+          </span>
+          {' '}
+          and
+          {' '}
+          <span
+            className="underline underline-offset-2"
+            onClick={() => setUrl('https://www.google.com/webhp?igu=1')}
+          >
+            Google
+          </span>
+        </p>
+      </div>
     </main >
   )
 }
